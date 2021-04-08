@@ -2,11 +2,6 @@ const express = require('express');
 const router = express.Router();
 const contactController = require('../controllers/contact');
 
-
-router.get('/', (req, res, next) => {
-  res.render('pages/index');
-});
-
 router.get('/classes', (req, res, next) => {
   res.render('pages/classes');
 });

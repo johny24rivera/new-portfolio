@@ -12,6 +12,8 @@ app.use(express.static(path.join(__dirname, 'Public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .use(bodyParser({ extended: false }))
-  .use('', portfolioRoutes);
-
-app.listen(PORT);
+  .use('/', portfolioRoutes)
+  .get('/', (req, res, next) => {
+    res.render('pages/index');
+  })
+  .listen(PORT, () => console.log(`Listening on ${PORT}`));
